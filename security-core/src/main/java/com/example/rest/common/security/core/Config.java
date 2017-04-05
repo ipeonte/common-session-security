@@ -39,17 +39,4 @@ public class Config {
 		return s;
 	}
 	
-	/**
-	 * Inject user name was used during login into standard http session
-	 * 
-	 * @param event
-	 */
-	@EventListener
-	public void handleAuthenticationSuccessEvent(AuthenticationSuccessEvent event) {
-		(((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession(false))
-				.setAttribute(Constants.USER_NAME_KEY,
-						((UsernamePasswordAuthenticationToken) event.getSource()).getName());
-
-	}
-
 }
